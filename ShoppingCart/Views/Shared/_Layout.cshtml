@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("Product", "Index", "Product")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Browse Categories <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li> @Html.ActionLink("Shoes", "Shoes", "ProductCategories")</li>
+                            <li> @Html.ActionLink("Dress", "Dress", "ProductCategories")</li>
+                            <li> @Html.ActionLink("Accessories", "Accessories", "ProductCategories")</li>
+                            <li> @Html.ActionLink("JumpSuits", "Jumpsuit", "ProductCategories")</li>
+                            <li> @Html.ActionLink("Skirts", "Skirts", "ProductCategories")</li>
+                        </ul>
+                    </li>
+
+                    @if (!(User.Identity.Name == "admin"))
+                    {
+                        <li>@Html.ActionLink("My Cart", "MyCart", "Transaction")</li>
+                    }
+                    <li>@Html.ActionLink("Contact Information", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("FAQ", "Index", "FAQ")</li>
+                    @if (User.Identity.Name == "admin")
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Admin Authorities <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Carts Record", "Index", "CartAdmin")</li>
+                                <li>@Html.ActionLink("Customer Record", "Index", "Customer")</li>
+                                <li>@Html.ActionLink("Customer Cart Items", "Index", "CartItem")</li>
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+   
+    <div class="container body-content">
+        
+        <img src="~/Content/Images/NEW FOREVER 21 LOGO.JPG" width="100%" heigth="20" />
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="footer_cont" style=" background-color: #222222" >
+                <div style="margin-left:100px">
+                    <h4>
+                        <h4 style="color:white"> Links </h4><ul>
+                    </h4>
+                    <ul>
+                        <li> <a href="~/Home/Index" style="color:white">Home</a></li>
+                        <li><a href="~/FAQ/Index" style="color:white">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div style="margin: -80px 100px 100px 700px">
+                    <h4 style="color:white"> Contact us</h4><ul>
+                        <li> <a href="~/Home/Contact" style="color:white">Contact Page</a></li>
+                        <li>
+                            <h5 style="color:white">
+                                Follow us:
+                            </h5>
+                            <a href="http://www.facebook.com"><img src="~/Content/Images/facebook.png" /></a>
+                            <a href="http://www.twitter.com"> <img src="~/Content/Images/twitter.png" /></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

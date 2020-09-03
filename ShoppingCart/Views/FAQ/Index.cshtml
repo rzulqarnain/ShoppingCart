@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ShoppingCart.Models.FAQ>
+
+@{
+    ViewBag.Title = "Index";
+    var user = User.Identity.Name;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Question)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+        </td>
+        <td>
+            @if(user =="admin"){
+                
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) 
+                <bdi> | </bdi>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                <bdi> | </bdi>
+            }
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>

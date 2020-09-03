@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShoppingCart.Models.Product>
+
+@{
+    ViewBag.Title = "Skirts";
+    var user = User.Identity.Name;
+}
+
+<h2>Skirts</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Type)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <img src="~/Content/Images/@item.image" width="70" height="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Type)
+            </td>
+            <td>
+                @if (!(user == "admin"))
+                {
+                    @Html.ActionLink("Buy", "Buy", "Transaction", new { id = item.Id }, null)
+
+                    <bdi> | </bdi>
+                }
+                @Html.ActionLink("Product Details", "Details", "Product" ,new { id = item.Id },null)
+
+                
+
+            </td>
+        </tr>
+    }
+
+</table>

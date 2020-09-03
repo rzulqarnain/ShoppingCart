@@ -1,0 +1,328 @@
+﻿@model ShoppingCart.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    var user = User.Identity.Name;
+}
+
+<h2>Details</h2>
+
+@{
+    var imgN = Model.Name + ".jpg";
+    var item = Model.Name;
+
+}
+
+
+<div>
+    <h4>Product</h4>
+
+    <center>
+
+        <img src="~/Content/Images/@imgN" width="300" height="250" />
+    </center>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+             Image
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.image)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Type)
+            </dd>
+
+            <dt>
+                Product Details
+            </dt>
+
+            <dd>
+                @if (item == "Asymmetric Dress")
+                {
+                    <p>
+                        DESCRIPTION
+                        V-neck dress in woven crêpe fabric with a printed pattern. Narrow shoulder straps, elasticized seam at waist, and flared, asymmetric skirt. Unlined.
+                        DETAILS
+                        98% polyester, 2% spandex. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else if (item == "Ballet Flats")
+                {
+                    <p>
+                        Ballet flats with a perforated pattern. Rubber soles.
+                        DETAILS
+                        100% polyester.
+                        Imported
+                    </p>
+                }
+                else if (item == "Bracelet with Flowers")
+                {
+                    <p>
+
+                        DESCRIPTION
+                        Bracelet in imitation leather with metal flowers and adjustable snap fasteners.
+                        DETAILS
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Clutch Bag")
+                {
+                    <p>
+                        DESCRIPTION
+                        Folding clutch bag in grained imitation leather with a zip and magnetic closure. Detachable, adjustable shoulder strap, one outer compartment with zip, and two inner compartments. Lined. Size 7 x 11 1/4 in.
+                        DETAILS
+                        100% polyurethane.
+                        Imported
+                    </p>
+                }
+                else if (item == "Dress with Butterfly Sleeves")
+                {
+                    <p>
+                        Knee-length dress in airy, woven fabric with butterfly sleeves. Concealed buttons at front, tie at waist, and gently rounded hem. Lined.
+                        DETAILS
+                        100% polyester. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else if (item == "Flared Skirt")
+                {
+                    <p>
+                        Wide-cut, knee-length skirt in jersey with an asymmetric hem and visible side zip. Unlined.
+                        DETAILS
+                        100% rayon. Machine wash cold
+                        Imported
+                    </p>
+                }
+                else if (item == "Flats")
+                {
+                    <p>
+                        Ballet flats with a perforated pattern. Rubber soles.
+                        DETAILS
+                        100% polyurethane.
+                        Imported
+                    </p>
+                }
+                else if (item == "Jumpsuit")
+                {
+                    <p>
+                        Sleeveless jumpsuit in woven crêpe fabric with concealed snap fasteners at top, drawstring at waist, and side pockets.
+                        DETAILS
+                        95% polyester, 5% spandex. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else if (item == "Knee-length Skirt")
+                {
+                    <p>
+                        Knee-length, fitted pencil skirt in thick stretch jersey. Visible zip at back. Unlined.
+                        DETAILS
+                        94% polyester, 6% spandex. Machine wash cold
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Leather Sandals")
+                {
+                    <p>
+                        PREMIUM QUALITY. Leather sandals with laces at front, zip at heel, leather insoles, and rubber soles. Heel height 4 1/4 in.
+                        DETAILS
+                        100% suede.
+                        Imported
+                    </p>
+                }
+                else if (item == "Leather Skirt")
+                {
+                    <p>
+                        PREMIUM QUALITY. Fitted, knee-length skirt in leather. Slit and visible zip. Lined.
+                        DETAILS
+                        100% leather. Dry clean only
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Loafers")
+                {
+                    <p>
+                        Loafers with rubber soles.
+                        DETAILS
+                        100% polyester.
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Long-sleeved Dress")
+                {
+                    <p>
+                        Long-sleeved dress in sweatshirt fabric. Concealed zip at back of neck and gently rounded hem. Unlined.
+                        DETAILS
+                        100% cotton. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else if (item == "Patterned Bib Overalls")
+                {
+                    <p>
+                        Bib overalls in woven fabric with a slight sheen and a printed pattern. Bib pocket, side pockets, and wide legs.
+                        DETAILS
+                        100% polyester. Machine wash cold
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Patterned Dress")
+                {
+                    <p>
+                        H&M LOVES COACHELLA. Sleeveless short dress in textured jersey. Decorative gathers at front and smocking at back. Unlined.
+                        DETAILS
+                        96% polyester, 4% spandex. Machine wash cold
+                        Imported
+                    </p>
+                }
+                else if (item == "Patterned Scarf")
+                {
+                    <p>
+                        DESCRIPTION
+                        Satin scarf with a printed pattern. Size 33 1/2 x 33 1/2 in.
+                        DETAILS
+                        100% polyester. Machine wash cold
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Pencil Skirt")
+                {
+                    <p>
+                        Knee-length, fitted pencil skirt in thick stretch jersey. Visible zip at back. Unlined.
+                        DETAILS
+                        94% polyester, 6% spandex. Machine wash cold
+                        Imported
+                    </p>
+                }
+                else if (item == "Plastic Change Purse")
+                {
+                    <p>
+                        Change purse in imitation leather and transparent plastic with a zip at top and credit card compartment at front. Size 5 x 7 in.
+                        DETAILS
+                        100% polyurethane.
+                        Imported
+                    </p>
+                }
+                else if (item == "Pleated Skirt")
+                {
+                    <p>
+                        Pleated skirt in airy woven fabric with a concealed side zip. Lined.
+                        DETAILS
+                        100% polyester. Machine wash cold
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Sandals with Fringe")
+                {
+                    <p>
+                        DESCRIPTION
+                        Sandals in imitation suede with fringe, straps with a metal buckle at side, and rubber soles.
+                        DETAILS
+                        100% polyester.
+                        Imported
+                    </p>
+                }
+                else if (item == "Short Necklace")
+                {
+                    <p>
+                        Short, chunky necklace with pendants in metal, plastic and glass. Adjustable length, 18 1/2 - 20 1/2 in.
+                        DETAILS
+                        Imported
+                    </p>
+                }
+                else if (item == "Sleeveless Jumpsuit")
+                {
+                    <p>
+                        Sleeveless jumpsuit with a woven crêpe bodice, low-cut back with concealed zip at back of waist, and wide-cut jersey legs.
+                        DETAILS
+                        100% polyester. Machine wash cold
+                        Imported
+
+                    </p>
+                }
+                else if (item == "Small Shoulder Bag")
+                {
+                    <p>
+                        Small shoulder bag in grained imitation leather. Detachable shoulder strap, zip at top, and one inner compartment with zip. Lined. Size 6 1/4 x 9 1/2 in.
+                        DETAILS
+                        100% polyurethane.
+                        Imported
+                    </p>
+                }
+                else if (item == "Suede Pumps")
+                {
+                    <p>
+                        PREMIUM QUALITY. Pumps in suede with leather insoles, leather lining, and rubber soles. Heel height 3 1/4 in.
+                        DETAILS
+                        100% suede.
+                        Imported
+                    </p>
+                }
+                else if (item == "Suede Skirt")
+                {
+                    <p>
+                        Short skirt in jersey with an elasticized waistband.
+                        DETAILS
+                        54% cotton, 41% polyester, 5% spandex. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else if (item == "Wrap Skirt")
+                {
+                    <p>
+                        Short skirt in jersey with an elasticized waistband.
+                        DETAILS
+                        54% cotton, 41% polyester, 5% spandex. Machine wash warm
+                        Imported
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        No Description Available
+                    </p>
+                }
+
+            </dd>
+        </dl>
+    </div>
+<p>
+    @Html.ActionLink("Back to Other Products", "Index")
+    @if (user == "admin")
+    {
+        <bdi> | </bdi>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    }
+</p>
+   
+
